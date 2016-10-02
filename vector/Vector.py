@@ -1,4 +1,4 @@
-from math import sqrt, acos, degrees
+from math import sqrt, acos, degrees, pi
 
 class Vector(object):
     def __init__(self, coordinates):
@@ -51,3 +51,14 @@ class Vector(object):
     # Returns the the arc cosine of the angle between vector (self) and vector (other)
     def angle_in_degrees(self, other):
         return degrees(self.angle_in_radian(other))
+
+    def is_parallel_to(self, other, tolerance=1e-10):
+        return (
+            self.is_zero() or
+            other.is_zero() or
+            self.angle_in_radian(other) == pi or
+            self.angle_in_degrees(other) < tolerance
+        )
+
+    def is_zero(self, tolerance=1e-10):
+        return self.magnitude() < tolerance
