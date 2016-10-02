@@ -65,3 +65,13 @@ class Vector(object):
 
     def is_orthogonal_to(self, other, tolerance=1e-10):
         return abs(self.dot_product(other)) < tolerance
+
+    def cross_product(self, other):
+        a1, a2, a3 = self.coordinates
+        b1, b2, b3 = other.coordinates
+
+        return Vector([
+            a2 * b3 - b2 * a3,
+            -(a1 * b3 - b1 * a3),
+            a1 * b2 - b1 * a2,
+        ])
