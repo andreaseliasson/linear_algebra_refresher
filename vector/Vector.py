@@ -62,3 +62,6 @@ class Vector(object):
 
     def is_zero(self, tolerance=1e-10):
         return self.magnitude() < tolerance
+
+    def is_orthogonal_to(self, other, tolerance=1e-10):
+        return abs(self.dot_product(other)) < tolerance
