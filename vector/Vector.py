@@ -18,5 +18,14 @@ class Vector(object):
     def __eq__(self, other):
         return self.coordinates == other.coordinates
 
+    def add(self, other):
+        new_coordinates = [x + y for x, y in zip(self.coordinates, other.coordinates)]
+        return Vector(new_coordinates)
 
+    def subtract(self, other):
+        new_coordinates = [x - y for x, y in zip(self.coordinates, other.coordinates)]
+        return Vector(new_coordinates)
 
+    def scalar_multiply(self, scalar):
+        new_coordinates = [scalar * coordinate for coordinate in self.coordinates]
+        return Vector(new_coordinates)
