@@ -1,4 +1,4 @@
-from math import sqrt
+from math import sqrt, acos
 
 class Vector(object):
     def __init__(self, coordinates):
@@ -41,3 +41,9 @@ class Vector(object):
 
     def dot_product(self, other):
         return sum([x * y for x, y in zip(self.coordinates, other.coordinates)])
+
+    # Returns the arc cosine of the dot product between self and other, in radians
+    def angle_in_radian(self, other):
+        v1 = self.normalize()
+        v2 = other.normalize()
+        return acos(v1.dot_product(v2))
