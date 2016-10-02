@@ -1,3 +1,5 @@
+from math import sqrt
+
 class Vector(object):
     def __init__(self, coordinates):
         try:
@@ -29,3 +31,13 @@ class Vector(object):
     def scalar_multiply(self, scalar):
         new_coordinates = [scalar * coordinate for coordinate in self.coordinates]
         return Vector(new_coordinates)
+
+    def magnitude(self):
+        return sqrt(sum([coordinate**2 for coordinate in self.coordinates]))
+
+    # Base unit
+    def normalize(self):
+        return self.scalar_multiply(1.00 / self.magnitude())
+
+    def dot_product(self, other):
+        return sum([x * y for x, y in zip(self.coordinates, other.coordinates)])
