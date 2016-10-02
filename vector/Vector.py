@@ -1,4 +1,4 @@
-from math import sqrt, acos
+from math import sqrt, acos, degrees
 
 class Vector(object):
     def __init__(self, coordinates):
@@ -47,3 +47,7 @@ class Vector(object):
         v1 = self.normalize()
         v2 = other.normalize()
         return acos(v1.dot_product(v2))
+
+    # Returns the the arc cosine of the angle between vector (self) and vector (other)
+    def angle_in_degrees(self, other):
+        return degrees(self.angle_in_radian(other))
