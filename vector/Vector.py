@@ -75,3 +75,8 @@ class Vector(object):
             -(a1 * b3 - b1 * a3),
             a1 * b2 - b1 * a2,
         ])
+
+    def project_on_to(self, other):
+        unit_vector = other.normalize()
+        scalar = self.dot_product(unit_vector)
+        return unit_vector.scalar_product(scalar)
